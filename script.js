@@ -1,47 +1,55 @@
-// Get all the card elements
-const cards = document.querySelectorAll('.card');
+const section = document.querySelector("section");
+const playerLivesCount = document.querySelector("span");
+const playerLives = 6;
 
-let flippedCards = [];
-let wrongGuesses = 0;
+// Text Content
+playerLivesCount.textContent = playerLives;
 
-cards.forEach(card => {
-    card.addEventListener('click', () => {
-        if (!card.classList.contains('flipped') && flippedCards.length < 2) {
-            // Flip the card
-            card.classList.add('flipped');
-            flippedCards.push(card);
+// Data
+const getData = () =>[
+    { imgScr: "./Images/Image1.jpg", name: "Image1"},
+    { imgScr: "./Images/Image2.jpg", name: "Image2"},
+    { imgScr: "./Images/Image3.jpg", name: "Image3"},
+    { imgScr: "./Images/Image4.jpg", name: "Image4"},
+    { imgScr: "./Images/Image5.jpg", name: "Image5"},
+    { imgScr: "./Images/Image6.jpg", name: "Image6"},
+    { imgScr: "./Images/Image7.jpg", name: "Image7"},
+    { imgScr: "./Images/Image8.jpg", name: "Image8"},
+    { imgScr: "./Images/Image1.jpg", name: "Image1"},
+    { imgScr: "./Images/Image2.jpg", name: "Image2"},
+    { imgScr: "./Images/Image3.jpg", name: "Image3"},
+    { imgScr: "./Images/Image4.jpg", name: "Image4"},
+    { imgScr: "./Images/Image5.jpg", name: "Image5"},
+    { imgScr: "./Images/Image6.jpg", name: "Image6"},
+    { imgScr: "./Images/Image7.jpg", name: "Image7"},
+    { imgScr: "./Images/Image8.jpg", name: "Image8"},
+];
 
-            // Check if two cards are flipped
-            if (flippedCards.length === 2) {
-                checkForMatch();
-            }
-        }
+// Randomize
+const randomize = () => {
+    const cardData =getData();
+    cardData.sort(() => Math.random() - 0.5);
+    return cardData;
+};
+
+// Card Generator Function
+const cardGenerator = () => {
+    const cardData = randomize();
+    // genenate HTML
+    cardData.forEach((item) => {
+      const card = document.createElement("div");
+      const face = document.createElement("img");
+      const back = document.createElement("div");
+      card.classList = "card";
+      face.classList = "face";
+      back.classList = "back";
+    //attach info to cards
+    face.src = item.imgScr;
+    //attach cards to section
+    section.appendChild(card);
+    card.appendChild(face);
+    card.appendChild(back);
     });
-});
+};
 
-function checkForMatch() {
-    const [card1, card2] = flippedCards;
-    if (card1.textContent === card2.textContent) {
-        // It's a match
-        flippedCards = [];
-    } else {
-        // It's a wrong guess
-        setTimeout(() => {
-            card1.classList.remove('flipped');
-            card2.classList.remove('flipped');
-            flippedCards = [];
-            wrongGuesses++;
-
-            // Check if the player has lost (e.g., after X wrong guesses)
-            const maxWrongGuesses = 3; // Adjust this as needed
-            if (wrongGuesses >= maxWrongGuesses) {
-                // Implement game over logic here
-                alert('Game Over');
-                // You can reset the game or perform any other actions
-            }
-        }, 5000); // Wait for 5 seconds before flipping back
-    }
-}
-
-// dfadfds
-
+cardGenerator();

@@ -1,30 +1,31 @@
-body {
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    background: #74ebd7;
+    background: -webkit-linear-gradient(
+        to right, #abc6e5, #74ebd5
+    );
+    background: linear-gradient(
+        to right, #abc6e5, #74ebd5
+    );   
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    margin: 0;
-}
-
-.game-container {
-    display: flex;
     flex-direction: column;
 }
 
-.card-row {
-    display: flex;
+section{
+    display: grid;
+    grid-template-columns: repeat(4, 8rem);
+    grid-template-rows: repeat(4, 8rem);
 }
 
-.card {
-    width: 100px;
-    height: 100px;
-    background-color: #f0f0f0;
-    margin: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.card.flipped {
-    transform: rotateY(180deg);
-    transition: transform 0.5s ease;
+.face, .back{
+    width: 100%;
+    height: 100%;
 }
