@@ -45,11 +45,25 @@ const cardGenerator = () => {
       back.classList = "back";
     //attach info to cards
     face.src = item.imgScr;
+    card.setAttribute('name', item.name);
     //attach cards to section
     section.appendChild(card);
     card.appendChild(face);
     card.appendChild(back);
-    });
+
+     card.addEventListener('click', (e) => {
+        card.classList.toggle("toggleCard");
+        checkCards(e);
+     });
+   });
+};
+
+//check matches
+const checkCards = (e) => {
+    console.log(e);
+    const clickedCard = e.target;
+    console.log(clickedCard);
+    clickedCard.classList.add("flipped");
 };
 
 cardGenerator();
