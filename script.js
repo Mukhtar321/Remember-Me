@@ -5,7 +5,7 @@ let playerLives = 6;
 playerLivesCount.textContent = playerLives;
 
 const getData = () => [
-    { imgSrc: "images/pinkMonster.jpg", name:"pinkMonster"},
+    { imgSrc: "../images/pinkMonster.jpg", name:"pinkMonster"},
     { imgSrc: "images/oldRust.jpg", name:"oldRust"},
     { imgSrc: "./images/classicBlue.jpg", name:"classicBlue"},
     { imgSrc: "./images/classicBeauty.jpg", name:"classicBeauty"},
