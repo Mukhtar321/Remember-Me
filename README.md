@@ -13,7 +13,11 @@
 
 Remember Me is a simple yet fun memory card game created by Mukhtar Juma. It's designed to challenge your memory and concentration skills while providing an enjoyable gaming experience. The game features a grid of face-down cards that players must flip over to find matching pairs.
 
-![Alt Text](relative_path_to_image_file)
+[Link text](https://mukhtar321.github.io/Remember-Me/)
+
+## Screenshot
+![Alt text](<Screenshot 2023-09-29 at 12.25.17 PM.png>)
+
 
 
 ## What I'm Proud Of
@@ -31,9 +35,7 @@ While working on this project, one of the most challenging aspects for me was tr
 - Match all the pairs to win the game!
 
 ## Credits
-
 - Mukhtar Juma - Game Developer
-- [Images used in the game](#) - Image sources (replace with actual sources)
 
 
 
