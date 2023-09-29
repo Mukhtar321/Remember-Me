@@ -1,69 +1,108 @@
 const section = document.querySelector("section");
 const playerLivesCount = document.querySelector("span");
-const playerLives = 6;
+let playerLives = 6;
 
-// Text Content
 playerLivesCount.textContent = playerLives;
 
-// Data
-const getData = () =>[
-    { imgScr: "./Images/Image1.jpg", name: "Image1"},
-    { imgScr: "./Images/Image2.jpg", name: "Image2"},
-    { imgScr: "./Images/Image3.jpg", name: "Image3"},
-    { imgScr: "./Images/Image4.jpg", name: "Image4"},
-    { imgScr: "./Images/Image5.jpg", name: "Image5"},
-    { imgScr: "./Images/Image6.jpg", name: "Image6"},
-    { imgScr: "./Images/Image7.jpg", name: "Image7"},
-    { imgScr: "./Images/Image8.jpg", name: "Image8"},
-    { imgScr: "./Images/Image1.jpg", name: "Image1"},
-    { imgScr: "./Images/Image2.jpg", name: "Image2"},
-    { imgScr: "./Images/Image3.jpg", name: "Image3"},
-    { imgScr: "./Images/Image4.jpg", name: "Image4"},
-    { imgScr: "./Images/Image5.jpg", name: "Image5"},
-    { imgScr: "./Images/Image6.jpg", name: "Image6"},
-    { imgScr: "./Images/Image7.jpg", name: "Image7"},
-    { imgScr: "./Images/Image8.jpg", name: "Image8"},
+const getData = () => [
+    { imgSrc: "./images/pinkMonster.jpg", name:"pinkMonster"},
+    { imgSrc: "./images/oldRust.jpg", name:"oldRust"},
+    { imgSrc: "./images/classicBlue.jpg", name:"classicBlue"},
+    { imgSrc: "./images/classicBeauty.jpg", name:"classicBeauty"},
+    { imgSrc: "./images/palmBlue.jpg", name:"palmBlue"},
+    { imgSrc: "./images/daBoyz.jpg", name:"daBoyz"},
+    { imgSrc: "./images/curves.jpg", name:"curves"},
+    { imgSrc: "./images/redworld.jpg", name:"redworld"},
+    { imgSrc: "./images/pinkMonster.jpg", name:"pinkMonster"},
+    { imgSrc: "./images/oldRust.jpg", name:"oldRust"},
+    { imgSrc: "./images/classicBlue.jpg", name:"classicBlue"},
+    { imgSrc: "./images/classicBeauty.jpg", name:"classicBeauty"},
+    { imgSrc: "./images/palmBlue.jpg", name:"palmBlue"},
+    { imgSrc: "./images/daBoyz.jpg", name:"daBoyz"},
+    { imgSrc: "./images/curves.jpg", name:"curves"},
+    { imgSrc: "./images/redworld.jpg", name:"redworld"},
 ];
 
-// Randomize
 const randomize = () => {
-    const cardData =getData();
+    const cardData = getData();
     cardData.sort(() => Math.random() - 0.5);
     return cardData;
 };
 
-// Card Generator Function
 const cardGenerator = () => {
     const cardData = randomize();
-    // genenate HTML
+    // generate html
     cardData.forEach((item) => {
-      const card = document.createElement("div");
-      const face = document.createElement("img");
-      const back = document.createElement("div");
-      card.classList = "card";
-      face.classList = "face";
-      back.classList = "back";
-    //attach info to cards
-    face.src = item.imgScr;
-    card.setAttribute('name', item.name);
-    //attach cards to section
-    section.appendChild(card);
-    card.appendChild(face);
-    card.appendChild(back);
+        const card = document.createElement("div");
+        const face = document.createElement("img");
+        const back = document.createElement("div");
+        card.classList = 'card';
+        face.classList = 'face';
+        back.classList = 'back';
+        // attach img to card
+        face.src = item.imgSrc;
+        card.setAttribute('name', item.name);
+        // attach the child to section
+        section.appendChild(card);
+        card.appendChild(face);
+        card.appendChild(back);
 
-     card.addEventListener('click', (e) => {
-        card.classList.toggle("toggleCard");
-        checkCards(e);
-     });
-   });
+        card.addEventListener("click", (e) => {
+            card.classList.toggle("toggleCard");
+            checkCards(e);
+        });
+    });
 };
 
-//check matches
+// check card
 const checkCards = (e) => {
-    console.log(e);
     const clickedCard = e.target;
-    console.log(clickedCard);
     clickedCard.classList.add("flipped");
+    const flippedCards = document.querySelectorAll(".flipped");
+    console.log(flippedCards);
+    if (flippedCards.length === 2){
+        if(
+            flippedCards[0].getAttribute("name") ===
+            flippedCards[1].getAttribute("name")
+        ) {
+            console.log("match");
+            flippedCards.forEach((card) => {
+                card.classList.remove("flipped");
+                card.style.pointerEvents = "none";
+            });
+        } else {
+            console.log("wrong");
+            flippedCards.forEach((card) => {
+                card.classList.remove("flipped");
+                setTimeout(() => card.classList.remove("toggleCard"), 1000);
+            });
+            playerLives--;
+            playerLivesCount.textContent = playerLives;
+            if (playerLives === 0) {
+                restart();
+            }
+        }
+    }
+};
+
+// restart
+const restart = () => {
+    let cardData = randomize();
+    let faces = document.querySelectorAll(".face")
+    let cards = document.querySelectorAll(".card")
+    section.style.pointerEvents = "none";
+    cardData.forEach((item,index) => {
+        cards[index].classList.remove('toggleCard');
+
+        setTimeout(() => {
+         cards[index].style.pointerEvents = "all";
+         faces[index].src = item.imgSrc;
+         cards[index].setAttribute('name', item.name);
+         section.style.pointerEvents = "all";
+        }, 1000);
+    });
+    playerLives = 6;
+    playerLivesCount.textContent = playerLives;
 };
 
 cardGenerator();
