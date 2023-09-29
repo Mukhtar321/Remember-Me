@@ -5,22 +5,22 @@ let playerLives = 6;
 playerLivesCount.textContent = playerLives;
 
 const getData = () => [
-    { imgSrc: "../images/pinkMonster.jpg", name:"pinkMonster"},
-    { imgSrc: "images/oldRust.jpg", name:"oldRust"},
-    { imgSrc: "./images/classicBlue.jpg", name:"classicBlue"},
-    { imgSrc: "./images/classicBeauty.jpg", name:"classicBeauty"},
-    { imgSrc: "./images/palmBlue.jpg", name:"palmBlue"},
-    { imgSrc: "./images/daBoyz.jpg", name:"daBoyz"},
-    { imgSrc: "./images/curves.jpg", name:"curves"},
-    { imgSrc: "./images/redworld.jpg", name:"redworld"},
-    { imgSrc: "./images/pinkMonster.jpg", name:"pinkMonster"},
-    { imgSrc: "./images/oldRust.jpg", name:"oldRust"},
-    { imgSrc: "./images/classicBlue.jpg", name:"classicBlue"},
-    { imgSrc: "./images/classicBeauty.jpg", name:"classicBeauty"},
-    { imgSrc: "./images/palmBlue.jpg", name:"palmBlue"},
-    { imgSrc: "./images/daBoyz.jpg", name:"daBoyz"},
-    { imgSrc: "./images/curves.jpg", name:"curves"},
-    { imgSrc: "./images/redworld.jpg", name:"redworld"},
+    { imgSrc: "./Images/pinkMonster.jpg", name:"pinkMonster"},
+    { imgSrc: "./Images/oldRust.jpg", name:"oldRust"},
+    { imgSrc: "./Images/classicBlue.jpg", name:"classicBlue"},
+    { imgSrc: "./Images/classicBeauty.jpg", name:"classicBeauty"},
+    { imgSrc: "./Images/palmBlue.jpg", name:"palmBlue"},
+    { imgSrc: "./Images/daBoyz.jpg", name:"daBoyz"},
+    { imgSrc: "./Images/curves.jpg", name:"curves"},
+    { imgSrc: "./Images/redworld.jpg", name:"redworld"},
+    { imgSrc: "./Images/pinkMonster.jpg", name:"pinkMonster"},
+    { imgSrc: "./Images/oldRust.jpg", name:"oldRust"},
+    { imgSrc: "./Images/classicBlue.jpg", name:"classicBlue"},
+    { imgSrc: "./Images/classicBeauty.jpg", name:"classicBeauty"},
+    { imgSrc: "./Images/palmBlue.jpg", name:"palmBlue"},
+    { imgSrc: "./Images/daBoyz.jpg", name:"daBoyz"},
+    { imgSrc: "./Images/curves.jpg", name:"curves"},
+    { imgSrc: "./Images/redworld.jpg", name:"redworld"},
 ];
 
 const randomize = () => {
