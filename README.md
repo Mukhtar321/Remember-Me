@@ -1,11 +1,10 @@
 # Mukhtar Juma
 
-[![HTML Badge](https://img.shields.io/badge/HTML-Expert-orange)](https://www.w3.org/TR/html52/)
-[![CSS Badge](https://img.shields.io/badge/CSS-Expert-blue)](https://www.w3.org/Style/CSS/)
-[![JavaScript Badge](https://img.shields.io/badge/JavaScript-Expert-yellow)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-[![Git Badge](https://img.shields.io/badge/Git-Expert-green)](https://git-scm.com/)
-[![GitHub Badge](https://img.shields.io/badge/GitHub-Expert-lightgrey)](https://github.com/)
-[![VS Code Badge](https://img.shields.io/badge/VS%20Code-Expert-blueviolet)](https://code.visualstudio.com/)
+![HTML](https://img.shields.io/badge/HTML-5-orange?style=flat-square&logo=html5)
+![CSS](https://img.shields.io/badge/CSS-3-blue?style=flat-square&logo=css3)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow?style=flat-square&logo=javascript)
+![Git](https://img.shields.io/badge/Git-Commit-FF4500?style=flat-square&logo=git)
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github)
 
 ## Project Description
 
